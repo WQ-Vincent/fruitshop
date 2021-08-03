@@ -1,0 +1,151 @@
+.dl {
+    height: 400px;
+    border: 1px solid green;
+}
+
+.dl-1 {
+    height: 31px;
+    border-bottom: 2px solid green;
+}
+
+canvas {
+    padding: 0;
+    margin: 0;
+    display: block;
+    position: absolute;
+    z-index: -20;
+    touch-action: none;
+}
+
+.dd {
+    width: 392px;
+    height: 37px;
+    margin-left: 10px;
+    margin-top: 40PX;
+    border-bottom: 1px solid #DADADA;
+    position: relative;
+}
+
+.dd>span {
+    display: inline-block;
+    margin-left: 20px;
+    width: 141px;
+    line-height: 37px;
+    position: absolute;
+    z-index: 100;
+    border: 1px solid #DADADA;
+    border-bottom: 0;
+    text-align: center
+}
+
+.div1 {
+    width: 392px;
+    height: 49px;
+    border: 1px solid #DADADA;
+    margin: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.div1>input {
+    width: 352px;
+    height: 37px;
+    border: 0;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.div1>label {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    margin-top: 12px;
+    background: url(../img/dl.png) no-repeat 0 -60px;
+}
+
+.div2 {
+    width: 392px;
+    height: 49px;
+    border: 1px solid #DADADA;
+    margin: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.div2>input {
+    width: 352px;
+    height: 37px;
+    border: 0;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.div2>label {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    margin-top: 12px;
+    background: url(../img/dl.png) no-repeat 0 -40px;
+}
+
+.dll {
+    width: 150px;
+    height: 45px;
+    margin: 40px;
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 45px;
+    color: white;
+    background-color: #8C0001;
+    border-radius: 8px;
+    border: 0;
+}
+
+.dl3 {
+    width: 150px;
+    height: 45px;
+    margin: 40px;
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 45px;
+    color: white;
+    background-color: #8C0001;
+    border-radius: 8px;
+    border: 0;
+}
+
+.zcc {
+    width: 150px;
+    height: 90px;
+    position: absolute;
+    top: 240px;
+    right: 400px;
+}
+
+h3 {
+    width: 150px;
+    height: 45px;
+    margin: 0;
+    line-height: 55px;
+    font-weight: 500;
+    text-indent: 10px;
+}
+
+.zcc1 {
+    display: block;
+    width: 150px;
+    height: 45px;
+    font-size: 18px;
+    line-height: 45px;
+    text-align: center;
+    color: white;
+    background-color: #8C0001;
+    border-radius: 8px;
+    border: 0;
+}

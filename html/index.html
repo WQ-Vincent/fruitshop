@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果篮子</title>
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/demo1.css" />
+    <link rel="stylesheet" href="../scss/index1.min.css" />
+    <link rel="stylesheet" href="../css/index2.css" />
+    <link rel="stylesheet" href="../css/index5.css" />
+    <link rel="stylesheet" href="../css/index10.css" />
+
+</head>
+
+<body>
+
+    <div class="header">
+		<div class="stname" style="width: auto;height: auto;top: 0;left: 0;cursor: none;">
+			<span id="name1" class="name">水果</span>
+			<span id="name2" class="name"> ๑ </span>
+			<span id="name3" class="name">篮子</span>
+		</div>
+		<img class="yingye" src="../img2/fruico.png"/>
+		<ul class="user">
+			<li>
+				<div class="search">
+					<input class="input" type="text" id="keyWord" name="keyword" value="" placeholder="搜索">
+					<img src="../img2/search.png"/>
+				</div>
+			</li>
+			<li><a id="spCart" title="购物车" href="shopcar.html"><img src="../img2/spcart.png"/>
+                <div style="width: 14px;height: 14px;border-radius: 7px;background: white;position: relative;float: left;">
+                    <b class="num9" id="shop_goods_num" style="font-size: 12px;color:#28cac2;top: -1px;right: 4px;position: absolute;"></b>
+                </div>
+                </a>
+            </li>
+            <script src="../js/jquery.min.js"></script>
+            <script>    
+                $(function() {
+                        if(cookie.get('isLogin')=="true"){
+                            var s='<li><a id="userbtn">'+cookie.get('username')+'</a></li>';
+                            $('.user').append(s);
+                            var t='<ul id="userset" style="display:none;"><li class="quitlogin"><a>退出</a></li></ul>';
+                            $('.header').append(t);
+                            $('#userbtn').on('click',function(){
+                                $('#userset').fadeToggle(200);
+                            });
+                            $('.quitlogin').on('click',function(){
+                                cookie.set('isLogin','false',1);
+                                cookie.remove('username');
+                                location.href="index.html";
+                            });
+                        }else{
+                            $('spCart').on('click',function(){
+                                alert('您还没有登录，请先登录!');});
+                            var s='<li><a id="loginbtn" href="login.html">登录/注册</a></li>';
+                            $('.user').append(s);
+                        }
+                });
+            </script>
+		</ul>
+		<ul class="menulist">
+			<li><a class="menu" href="index.html">首页</a><i></i></li>
+			<li><a class="menu" target="_blank" href="tencent://message/?uin=270540351">联系我们</a><i></i></li>
+			<li><a class="menu" href="#">关于我们</a><i></i></li>
+		</ul>
+		
+	</div>
+    <div class="yc"></div>
+            <script src="../js/jquery.min.js"></script>
+            <script>
+                $(function() {
+                    $('input[name="keyword"]').keyup(function() {
+
+
+                        $.ajax({
+                            type: "get",
+                            url: "../lib/search.php",
+                            data: {
+                                'keyword': $(this).val(),
+                            },
+                            dataType: "json",
+                            success: function(data) {
+
+                                if ($('#keyWord').val() == '') $('.yc').html('').css('display', 'none');　
+                                else $('.yc').html(data).css('display', 'block');　
+
+                                let tem = "";
+                                data.forEach((elm, i) => {
+
+                                    tem += `
+                                <li style="height:30px;list-style:none;line-height:30px;padding:0"><a href="product.html?id=${elm.id}" style="color:white;font-size:15px;padding-left:10px">${elm.title}</a></li>
+                                
+                                `;
+                                    $('.yc').append(tem);
+
+                                });
+
+                            }
+                        });
+                    });
+                });
+            </script>
+
+    <script src="../js/cookie.js"></script>
+    <script>
+        var sum3 = 0;
+        var shop2 = cookie.get('shop');
+        if (!shop2) $('.num9').text(0);
+        shop2 = JSON.parse(shop2);
+
+        shop2.forEach(elm => {
+
+            sum3 += parseInt(elm.num);
+
+        });
+        $('.num9').text(sum3);
+    </script>
+
+    <div class="htmleaf-container">
+        <div class="htmleaf-content">
+            <ul class="ul-02">
+                        <li>
+                            <a href="#">
+                                <div class="gc1"> <em></em><span> 国产水果</span></div>
+                            </a>
+                            <div class="gc-01" style="font-size:12px"><a href="#">
+                                          苹果
+                                           </a>
+                                <a href="#">
+                                         香梨
+                                            </a>
+                                <a href="#">
+                                                    柑橘
+                                                     </a>
+                                <a href="#">
+                                                   西瓜
+                                                      </a>
+                            </div>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="gc1"> <em id="em1"></em><span> 进口水果</span></div>
+                            </a>
+                            <div class="gc-01" style="font-size:12px"><a href="#">
+                                              车厘子
+                                               </a>
+                                <a href="#">
+                                             奇异果
+                                                </a>
+                                <a href="#">
+                                                        榴莲
+                                                         </a>
+                                <a href="#">
+                                                       火龙果
+                                                          </a>
+                            </div>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="gc1"> <em id="em2"></em><span> 水果饮品</span></div>
+                            </a>
+                            <div class="gc-01" style="font-size:12px"><a href="#">
+                                              苹果醋
+                                               </a>
+                                <a href="#">
+                                             椰果汁
+                                                </a>
+                                <a href="#">
+                                                        橙汁
+                                                         </a>
+                                <a href="#">
+                                                       芒果汁
+                                                          </a>
+                            </div>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="gc1"> <em id="em3"></em><span> 果肉制品</span></div>
+                            </a>
+                            <div class="gc-01" style="font-size:12px"><a href="#">
+                                                  蜜桔罐头
+                                                   </a>
+                                <a href="#">
+                                                 荔枝罐头
+                                                    </a>
+                                <a href="#">
+                                                            黄桃罐头
+                                                             </a>
+                            </div>
+
+                        </li>
+
+
+
+
+                    </ul>
+            <script>
+                $(function() {
+                    $('.ul-02 li').eq(0).on('click',function(){
+                        window.scrollTo({
+						top:1060,
+						behavior:"smooth"
+					});
+                    });
+                    $('.ul-02 li').eq(1).on('click',function(){
+                        window.scrollTo({
+						top:1760,
+						behavior:"smooth"
+					});
+                    });
+                    $('.ul-02 li').eq(2).on('click',function(){
+                        window.scrollTo({
+						top:2460,
+						behavior:"smooth"
+					});
+                    });
+                    $('.ul-02 li').eq(3).on('click',function(){
+                        alert('暂时未开放')
+                    });
+                });
+            </script>
+            <div class="container1" style="margin:0;padding:0;">
+                <div id="ipresenter">
+                    <div id="intro" class="step" data-x="0" data-y="0" data-thumbnail="../img/01.png">
+                        <img src="../img/01.png" />
+
+                    </div>
+
+                    <div id="capture" class="step" data-x="1100" data-y="1200" data-scale="1.8" data-rotate="180" data-thumbnail="../img/02.jpg">
+                        <img src="../img/02.jpg" />
+
+                    </div>
+
+                    <div id="view" class="step" data-x="-300" data-y="600" data-scale="0.2" data-rotate="270" data-thumbnail="../img/03.jpg">
+                        <img src="../img/03.jpg" style="width: 1582px" />
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../js/cookie.js"></script>
+
+
+    <script>
+        $(function() {
+            $.ajax({
+                type: "get",
+                url: "../lib/getall.php",
+                dataType: "json",
+                success: function(data) {
+
+                    let temp = '';
+
+                    data.forEach((elm, i) => {
+                        let pic = JSON.parse(elm.pic);
+
+                        temp += `
+								<li>
+				
+                        <h1><a href="#" style="color:green">
+                            </a></h1>
+                            <a href="product.html?id=${elm.id}">
+	<span class="span1"><img data-original="${pic[0].src}" class="sg1 lazy" ></span>
+					<em class="em1">￥${elm.price}</em>
+					<h3>		
+			${elm.title}
+           
+
+<\script src="../js/jquery.lazyload.min.js"><\/script>
+
+
+
+<\script>
+
+  $(function() {
+
+      $("img.lazy").lazyload({effect: "fadeIn"});
+
+  });
+
+<\/script>
+
+
+		  </h3>
+          </a>
+                </li>`;
+
+
+                    });
+
+                    $('.sp-1').append(temp);
+                    $('.sp .sp-1:first-of-type>li:first-of-type>h1>a').text("热门推荐").css({
+                        "color": "white",
+                        "use-select": "none",
+                        "font-size":"20px",
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $.ajax({
+                type: "get",
+                url: "../lib/getall1.php",
+                dataType: "json",
+                success: function(data) {
+
+                    let temp2 = '';
+
+                    data.forEach((elm, i) => {
+                        let pic = JSON.parse(elm.pic);
+
+                        temp2 += ` 
+                    <li>
+                        <a style="color:green" href="product.html?id=${elm.id}"><img data-original="${pic[0].src}" class="pg1 lazy">
+                        <h6>
+							${elm.title}</h6>
+                        <em class="em3">￥${elm.price}</em>
+                        </a>
+                    </li>
+
+                    <\script src="../js/jquery.min.js"><\/script>
+                    <\script src="../js/jquery.lazyload.min.js"><\/script>
+<\script type="text/javascript" charset="utf-8">
+  $(function() {
+      $("img.lazy").lazyload({effect: "fadeIn"});
+  });
+<\/script>
+
+                `;
+
+
+
+
+                    });
+                    $('.sp-2').append(temp2);
+
+                }
+            });
+        });
+    </script>
+
+
+    <script src="../js/ipresenter.packed.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#ipresenter').iPresenter({
+                timerPadding: -1,
+                controlNav: true,
+                controlNavThumbs: true,
+                controlNavNextPrev: false
+            });
+        });
+    </script>
+
+    <div class="sp">
+        <div class="container" style="display: flex">
+            <ul class="sp-1">
+
+            </ul>
+
+
+            <div class="sp2">
+                <ul class="sp-2">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="gg1">
+        <div class="container">
+            <div class="gg2">
+                <div class="g-lef">
+                    <div class="g1">
+                        <span></span> 国产水果
+                    </div>
+                    <div class="g2">
+                        <img src="../img/g2.jpg">
+                    </div>
+                </div>
+
+
+                <div class="g-cen">
+                    <img class="c1" src="../img/c1.png">
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $(function() {
+            $.ajax({
+                type: "get",
+                url: "../lib/getall2.php",
+                dataType: "json",
+                success: function(data) {
+
+                    let temp = '';
+
+                    data.forEach((elm, i) => {
+                        let pic = JSON.parse(elm.pic);
+
+                        temp += `
+                                <div class="c2">
+                            <a href="product.html?id=${elm.id}">
+                                <img data-original="${pic[0].src}" class="lazy">
+                                <div class="c3">
+                                ￥${elm.price}
+                                </div>
+                                <div class="c4">
+                                ${elm.title}
+                                </div>
+                            </a>
+                        </div>
+                        <\script src="../js/jquery.min.js"><\/script>
+                    <\script src="../js/jquery.lazyload.min.js"><\/script>
+<\script type="text/javascript" charset="utf-8">
+  $(function() {
+      $("img.lazy").lazyload({effect: "fadeIn"});
+  });
+<\/script>
+                                       `;
+                    });
+
+                    $('.g-cen').append(temp);
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+    <div class="gg1" style="margin-top: 100px">
+        <div class="container">
+            <div class="gg2">
+                <div class="g-lef">
+                    <div class="g1">
+                        <span></span>进口水果
+                    </div>
+                    <div class="g2">
+                        <img src="../img/d1.jpg">
+                    </div>
+                </div>
+
+
+                <div class="g-cen1">
+                    <img class="c1" src="../img/d2.png">
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $.ajax({
+                type: "get",
+                url: "../lib/getall3.php",
+                dataType: "json",
+                success: function(data) {
+
+                    let temp = '';
+
+                    data.forEach((elm, i) => {
+                        let pic = JSON.parse(elm.pic);
+
+                        temp += `
+                                <div class="c2">
+                            <a href="product.html?id=${elm.id}">
+                                <img data-original="${pic[0].src}" class="lazy">
+                                <div class="c3">
+                                ￥${elm.price}
+                                </div>
+                                <div class="c4">
+                                ${elm.title}
+                                </div>
+                            </a>
+                        </div>
+                        <\script src="../js/jquery.min.js"><\/script>
+                    <\script src="../js/jquery.lazyload.min.js"><\/script>
+<\script type="text/javascript" charset="utf-8">
+  $(function() {
+      $("img.lazy").lazyload({effect: "fadeIn"});
+  });
+<\/script>
+                                          
+                                       `;
+
+
+
+                    });
+
+                    $('.g-cen1').append(temp);
+
+
+
+
+                }
+            });
+        });
+    </script>
+
+
+    <div class="gg1" style="margin-top: 100px">
+        <div class="container">
+            <div class="gg2">
+                <div class="g-lef">
+                    <div class="g1">
+                        <span></span>水果饮品
+                    </div>
+                    <div class="g2">
+                        <img src="../img/e1.jpg">
+                    </div>
+                </div>
+
+
+                <div class="g-cen2">
+                    <img class="c1" src="../img/e2.jpg">
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(function() {
+            $.ajax({
+                type: "get",
+                url: "../lib/getall4.php",
+                dataType: "json",
+                success: function(data) {
+
+                    let temp = '';
+
+                    data.forEach((elm, i) => {
+                        let pic = JSON.parse(elm.pic);
+
+                        temp += `
+                                <div class="c2">
+                            <a href="product.html?id=${elm.id}">
+                                <img data-original="${pic[0].src}" class="lazy">
+                                <div class="c3">
+                                ￥${elm.price}
+                                </div>
+                                <div class="c4">
+                                ${elm.title}
+                                </div>
+                            </a>
+                        </div>
+                        <\script src="../js/jquery.min.js"><\/script>
+                    <\script src="../js/jquery.lazyload.min.js"><\/script>
+<\script type="text/javascript" charset="utf-8">
+  $(function() {
+      $("img.lazy").lazyload({effect: "fadeIn"});
+  });
+<\/script>
+                                          
+                                       `;
+
+
+                    });
+
+                    $('.g-cen2').append(temp);
+
+
+
+
+                }
+            });
+        });
+    </script>
+    <div class="line" style="margin-top: 50px;margin-bottom: 10px;width: 100%;height: 1px;background: #ddd;"></div>
+    <div class="footer" style="padding-bottom: 10px">CopyRight© 2019-2020 BeiYuan II</div>
+</body>
+
+</html>

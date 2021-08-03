@@ -1,0 +1,114 @@
+div.container1 {
+    position: relative;
+    height: 520px;
+    /* width: 1520px; */
+    overflow: hidden;
+    box-shadow: inset 0px 0px 15px rgba(200, 200, 200, 1);
+    margin: auto;
+    margin-top: 10px;
+    border: #DDD 1px solid;
+    border-radius: 5px;
+}
+
+div#ipresenter div#preloader {
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 5px;
+    z-index: 200;
+    border: #CCC 1px solid;
+    border-radius: 4px;
+    padding: 1px;
+    background: #FFF;
+    -webkit-transform: translate(-75px, 0px);
+    -moz-transform: translate(-75px, 0px);
+    -o-transform: translate(-75px, 0px);
+    -ms-transform: translate(-75px, 0px);
+    transform: translate(-75px, 0px);
+    box-shadow: 0px 0px 8px rgba(200, 200, 200, 1);
+}
+
+div#ipresenter div#preloader div {
+    display: block;
+    width: 0%;
+    height: 5px;
+    background: #CCC;
+    border-radius: 3px;
+}
+
+div#ipresenter div.step {
+    /* max-width: 1520px;
+    min-width: 600px; */
+    text-align: center;
+    z-index: 10;
+}
+
+div#ipresenter div.step h2,
+div.step p {
+    text-align: left;
+}
+
+div#ipresenter div#intro {
+    /* width: 1520px; */
+}
+
+div#ipresenter div#intro img {
+    float: left;
+}
+
+div#ipresenter div#capture h2 {
+    text-align: center
+}
+
+a.ipresenter_stepsNav {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    height: 100px;
+    background-image: url(../img/nav_paddles.png);
+    top: 43%;
+    -webkit-transition: opacity 150ms ease-out;
+    -moz-transition: opacity 150ms ease-out;
+    -o-transition: opacity 150ms ease-out;
+    transition: opacity 150ms ease-out;
+}
+
+a.ipresenter_stepsNav:active {
+    background-image: url(../img/nav_paddles_down.png);
+}
+
+a#ipresenter_nextStep {
+    right: 20px;
+    background-position: 56px 0px;
+}
+
+a#ipresenter_prevStep {
+    left: 20px;
+    background-position: -16px 0px
+}
+
+div.container1 div.ipresenter-controlNav {
+    display: inline-block;
+    position: absolute;
+    left: 499px;
+    bottom: 20px;
+}
+
+div.container1 div.ipresenter-controlNav a {
+    float: left;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.6);
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 16px;
+    width: 16px;
+}
+
+div.container1 div.ipresenter-controlNav div.ipresenter-items ul {
+    list-style: none;
+}
+
+div.container1 div.ipresenter-controlNav div.ipresenter-items ul li {
+    float: left;
+}

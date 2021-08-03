@@ -1,0 +1,48 @@
+.zc {
+  height: 400px;
+  border: 1px solid green;
+}
+
+.zc-1 {
+  height: 31px;
+  border-bottom: 2px solid green;
+}
+
+.pad,
+form {
+  width: 1060px;
+  margin: 10px auto;
+}
+
+label {
+  display: inline-block;
+  line-height: 28px;
+  width: 100px;
+  height: 28px;
+  text-align: left;
+  line-height: 28px;
+  color: #545454;
+}
+
+form > div {
+  height: 52px;
+  line-height: 52px;
+  margin: 10px;
+}
+
+form input {
+  width: 238px;
+  height: 30px;
+}
+
+form .sub {
+  width: 65px;
+  height: 32px;
+  border-radius: 5px;
+  color: white;
+  line-height: 28px;
+  outline: none;
+  font-size: 14px;
+  background-color: #8C0001;
+  margin: 15px 120px;
+}

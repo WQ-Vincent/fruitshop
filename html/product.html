@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+
+    <link rel="stylesheet" href="../css/index1.css" />
+    <link rel="stylesheet" href="../css/index8.css" />
+    <link rel="stylesheet" href="../css/index10.css" />
+    <link href="../css/jquery.exzoom.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body style="padding: 0;margin:0">
+
+    <script src="../js/jquery.min.js"></script>
+
+    <script src="../js/cookie.js"></script>
+    <script src="../js/jquery.exzoom.js"></script>
+
+
+    <script src="../js/jquery.min.js"></script>
+    <!-- <script src="../js/jquery.exzoom.js"></script>
+    <script>
+        $("#exzoom").exzoom({
+            autoPlay: false,
+        });
+    </script> -->
+
+   <div class="header">
+		<div class="stname" style="width: auto;height: auto;top: 0;left: 0;cursor: none;">
+			<span id="name1" class="name">水果</span>
+			<span id="name2" class="name"> ๑ </span>
+			<span id="name3" class="name">篮子</span>
+		</div>
+		<img class="yingye" src="../img2/fruico.png"/>
+		<ul class="user">
+			<li>
+				<div class="search">
+					<input class="input" type="text" id="keyWord" name="keyword" value="" placeholder="搜索">
+					<img src="../img2/search.png"/>
+				</div>
+			</li>
+			<li><a id="spCart" title="购物车" href="shopcar.html"><img src="../img2/spcart.png"/>
+                <div style="width: 14px;height: 14px;border-radius: 7px;background: white;position: relative;float: left;">
+                    <b class="num9" id="shop_goods_num" style="font-size: 12px;color:#28cac2;top: -1px;right: 4px;position: absolute;"></b>
+                </div>
+                </a>
+            </li>
+            <script src="../js/jquery.min.js"></script>
+            <script>    
+                $(function() {
+                        if(cookie.get('isLogin')=="true"){
+                            var s='<li><a id="userbtn">'+cookie.get('username')+'</a></li>';
+                            $('.user').append(s);
+                            var t='<ul id="userset" style="display:none;"><li class="quitlogin"><a>退出</a></li></ul>';
+                            $('.header').append(t);
+                            $('#userbtn').on('click',function(){
+                                $('#userset').fadeToggle(200);
+                            });
+                            $('.quitlogin').on('click',function(){
+                                cookie.set('isLogin','false',1);
+                                cookie.remove('username');
+                                location.href="index.html";
+                            });
+                        }else{
+                            var s='<li><a id="loginbtn" href="login.html">登录/注册</a></li>';
+                            $('.user').append(s);
+                        }
+                });
+            </script>
+		</ul>
+		<ul class="menulist">
+			<li><a class="menu" href="index.html">首页</a><i></i></li>
+			<li><a class="menu" target="_blank" href="tencent://message/?uin=270540351">联系我们</a><i></i></li>
+			<li><a class="menu" href="#">关于我们</a><i></i></li>
+		</ul>
+		
+	</div>
+    
+    <div class="yc" style="margin-top: -58px !important; "></div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+                    $('input[name="keyword"]').keyup(function() {
+
+
+                        $.ajax({
+                            type: "get",
+                            url: "../lib/search.php",
+                            data: {
+                                'keyword': $(this).val()
+                            },
+                            dataType: "json",
+                            success: function(data) {
+
+                                if ($('#keyWord').val() == '') $('.yc').html('').css('display', 'none');　
+                                else $('.yc').html(data).css('display', 'block');　
+
+                                let tem = "";
+                                data.forEach((elm, i) => {
+
+                                    tem += `
+                                        <li style="height:30px;list-style:none;line-height:30px;padding:0"><a href="product.html?id=${elm.id}" style="color:white;font-size:15px;padding-left:10px">${elm.title}</a></li>
+                                        
+                                        `;
+                                    $('.yc').append(tem);
+
+                                });
+
+                            }
+                        });
+                    });
+                </script>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script>
+        var sum3 = 0;
+        var shop2 = cookie.get('shop');
+        if (!shop2) $('.num9').text(0);
+        shop2 = JSON.parse(shop2);
+
+        shop2.forEach(elm => {
+
+            sum3 += parseInt(elm.num);
+
+        });
+        $('.num9').text(sum3);
+    </script>
+
+
+    <div class="item1">
+        <div class="container">
+            <div class="item2">
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(function() {
+
+            let id = location.search.split('=')[1]; // 获得id
+            $.ajax({
+                type: "get",
+                url: "../lib/getitem.php",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                success: function(data) {
+                    let pic = JSON.parse(data.pic);
+                    let tempstr = `
+                    <div class="item4">
+                        <div class="pmore"><a class="pmore" href="#">商品详情</a></div>
+                        <h4></h4>
+                        <div class="fdj">
+                            <div class="exzoom" id="exzoom" >
+    
+                                <div class="exzoom_img_box">
+                                    <ul class="exzoom_img_ul">
+                                        <li><img src="${pic[0].src}" /></li>
+                                    </ul>
+                                </div>
+    
+                                <div class="exzoom_nav"></div>
+    
+                                <p class="exzoom_btn">
+                                    <a href="javascript:void(0);" class="exzoom_prev_btn"> &lt; </a>
+                                    <a href="javascript:void(0);" class="exzoom_next_btn"> &gt; </a>
+                                </p>
+                            </div>
+                        </div>
+        <div class="gwc1">
+                <\script src="../js/jquery.exzoom.js"><\/script>
+    <\script type="text/javascript">
+        $("#exzoom").exzoom({
+            autoPlay: false,
+        }); //方法调用，务必在加载完后执行
+    <\/script>
+            <h5>${data.title}</h5>
+    
+            <div class="jg1">
+                <div class="jg-2">
+                    价格
+                </div>
+                <div class="jg-3">
+                    <span style="font-size: 24px;"class="span-1">
+                             ${data.price}
+        </span>元
+                </div>
+            </div>
+    
+            <div class="jg-4">
+                <div class="xs-1">
+                    <span>累积销售量</span><em>${data.num}</em></div>
+                <div class="xs-2">
+                    <span>累积评价</span><em>0</em></div>
+            </div>
+    
+    
+    
+            <div class="gm1">
+    
+                <div class="gm2">
+                    购买数量
+                </div>
+    
+              
+                <div class="coninp1"><input class="inp1" type="number" value="1"  min="1" max="${data.num}" id="num"></div>
+            </div>
+    
+            <div class="btn1">
+                <a href="#" class="buy1">立即购买</a>
+                <a href="#" class="buy2">加入购物车</a>
+            </div>
+        </div>
+        </div>`;
+                    
+                    if(cookie.get('isLogin')=="true"){
+                            $('.item2').append(tempstr).find('.buy1').on('click',function() {
+                                alert('购买成功!');
+                            });
+                        $('.item2').find('.buy2').on('click',function() {
+                                alert('成功加入购物车!');                            
+                                addItem(data.id, data.price, $('#num').val());
+                            var snum=$('#shop_goods_num').text();
+                            console.log(snum);
+                            var nnum=parseInt(snum);
+                            nnum++;
+                            console.log(nnum);
+                            $('#shop_goods_num').text(nnum);
+                            });
+                    }else{
+                        $('.item2').append(tempstr).find('.buy1').on('click',function(){
+                alert('您还没有登录，请先登录!');
+            });
+                        $('.item2').find('.buy2').on('click',function(){
+                alert('您还没有登录，请先登录!');
+                             });
+                        }
+                }
+
+            });
+
+
+
+            function addItem(id, price, num) {
+                var shop = cookie.get('shop'); //获取cookie
+
+                var product = {
+                    id: id,
+                    price: price,
+                    num: num
+                };
+
+                if (shop) {
+                    shop = JSON.parse(shop);
+
+                    if (shop.some(elm => elm.id == id)) {
+                        shop.forEach(elm => {
+                            elm.id == id ? elm.num = num : null;
+                        });
+                    } else {
+                        shop.push(product);
+                    }
+                } else {
+                    shop = [];
+                    shop.push(product);
+
+                }
+                cookie.set('shop', JSON.stringify(shop), 1);
+
+
+            }
+
+        });
+    </script>
+<div class="footer2">CopyRight© 2019-2020 BeiYuan II</div>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+.header{
+	background: #28cac2;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 8.5%;
+	text-align: center;
+    transition:all .4s ease-in-out 0s;
+    z-index: 555;
+}
+
+.header .name{
+    top: 0;
+    width: auto;
+    margin-top: 14px;
+    float: left;
+    font-size: 25px;
+    font-family:"腾讯体";
+    color: white;
+	transition: color 0.2s linear;
+}
+
+@keyframes nc{
+	0%{transform: rotate(0);}
+	100%{transform: rotate(-360deg);}
+}
+
+.header .stname:hover #name2{
+	animation: nc 2s linear infinite;
+}
+
+.header .stname:hover .name{
+	color:#330506;
+	transition: color 0.3s linear;
+}
+
+#name1{
+	margin-left: 15px;
+}
+
+#name2{
+	padding-bottom: 10px;
+    margin-top: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.yingye{
+	width: 35px;
+    height: 35px;
+    margin-top: 12px;
+    margin-left: 10px;
+	float: left
+}
+
+.theme-switch__input {
+    opacity: 0;
+}
+
+.theme-switch__label {
+    padding: 20px;
+    margin: 60px;
+    transition: background-color 200ms ease-in-out;
+    width: 120px;
+    height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: slateGray;
+    box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4);
+}
+
+.theme-switch__input, .theme-switch__label {
+    z-index: 1;
+}
+
+.menulist{
+	position: relative;
+    height: 60px;
+    margin: 0;
+    width: fit-content;
+    display: inline-block;
+    padding-inline-start: 0;
+    float: right;
+}
+
+.menulist li{
+	border: 1px solid transparent;
+    margin: 0 10px;
+    list-style-type: none;
+    float: left;
+    height: 30px;
+    position: relative;
+    margin-top: 15px;
+}
+
+.menulist li:hover{
+	border: 1px solid white;
+	transition: border 0.3s linear;
+}
+
+.menulist a{
+	font-family: "微软雅黑 Light";
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    padding: 5px 19px;
+    float: left;
+    font-weight: 600;
+}
+
+.user{
+    height: 60px;
+    float: right;
+	display: inline-block;
+	margin: 0;
+}
+
+.user li{
+	list-style-type: none;
+    margin: 0 10px;
+    padding: 15px 0;
+    float: left;
+    position: relative;
+}
+
+.search{
+	width: 200px;
+    height: 30px;
+    line-height: 30px!important;
+    font-size: 12px;
+    border-radius: 15px;
+    padding: 0 35px 0 17px;
+    border: 1px solid white;
+    background: transparent;
+    box-sizing: border-box
+}
+
+.search input{
+	border: none;
+	width: 150px;
+	background: transparent;
+	color: white;
+    outline: none;
+    font-size: 13px;
+}
+
+.search input::placeholder{
+	color:white
+}
+
+.search img{
+	float: right;
+    margin-top: -26px;
+    margin-right: -28px;
+    width: 22px;
+    height: 22px;
+}
+
+/*购物车*/
+#spCart{
+	cursor: pointer;
+}
+
+#spCart img{
+	width: 28px;
+    float: left;
+}
+
+#loginbtn{
+	cursor: pointer;
+	border: 1px solid transparent;
+	color: white;
+    font-size: 15px;
+    border-radius: 6px;
+    width: 80px;
+    padding: 4px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#loginbtn:hover{	
+	border: 1px solid white;
+	transition: border 0.3s linear;
+}
+
+#userbtn{
+	cursor: pointer;
+	border: 1px solid transparent;
+	color: white;
+    font-size: 15px;
+    border-radius: 6px;
+    width: 80px;
+    padding: 4px;
+    display: inline-block;
+}
+
+#userbtn:before{
+    content: " ";
+    display: block;
+    height: 20px;
+    width: 20px;
+    float: left;
+    background: url("../img2/userico.png") no-repeat;
+    background-size: 100%;
+}
+
+#userbtn:hover{	
+	border: 1px solid white;
+	transition: border 0.3s linear;
+}
+
+#userset{
+    margin: 10px 0;
+    float: right;
+    background: #28cac2;
+    width: 70px;
+    position: fixed;
+    border-radius: 3px;
+    padding: 5px 0;
+    top: 60px;
+    right: 15px;
+    box-shadow: 0 2px 8px 1px rgba(0,0,0,.15);
+    z-index: 999;
+    transition:background .4s ease-in-out 0s;
+    z-index: 400;
+}
+
+#userset:before{
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #28cac2;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+#userset a{
+    font-family: "微软雅黑 Light";
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 3px 21px;
+    float: left;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.yc{
+    display: block;
+    position: absolute;
+    z-index: 300;
+    width: 320px;
+    right: 60px;
+    margin-top: 3px;
+    border-radius: 10px;
+    background: #28cac2;
+}

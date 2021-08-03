@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="../css/index1.css" />
+    <link rel="stylesheet" href="../css/index10.css" />
+    <style>
+        .ul-a {
+            padding: 0;
+            width: 503px;
+            height: 20px;
+            display: flex;
+            background: url(../img/aa.png) no-repeat;
+        }
+        
+        .ul-1 {
+            position: relative;
+        }
+        
+        .ul-a {
+            position: absolute;
+            right: 0;
+            top: 70px;
+        }
+        
+        .ul-a li {
+            margin-top: 20px;
+            width: 167px;
+            text-align: center;
+            list-style: none;
+            font-size: 14px;
+        }
+        
+        .whole {
+            padding-top: 15px;
+            border-left: 5px solid #28cac2;
+            margin-top: 150px;
+            height: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .mmm1 {
+            display: flex;
+            height: 46px;
+            line-height: 46px;
+            text-align: left;
+            background-color: #F4F4F5;
+            font-size: 12px;
+            color: #333333;
+            border-radius: 5px;
+        }
+        
+        form {
+            width: 143px;
+        }
+        
+        .sp1 {
+                width: 35%;
+    text-align: center;
+        }
+        
+        .dj1 {
+            width: 8%;
+    text-align: center;
+        }
+        
+        .sh {
+                width: 23%;
+    text-align: center;
+        }
+        
+        .xj {
+            width: 5%
+        }
+        
+        .cz1 {
+            width: 17%;
+            text-align: center;
+        }
+        
+        .zy {
+            height: 42px;
+            line-height: 38px;
+            font-size: 14px;
+            color: #333333;
+        }
+        
+        .g1 {
+            border-radius: 5px;
+            border-top:  5px solid #28cac2;
+        }
+        
+        .gg1 {
+            display: flex;
+            height: 100px;
+            background-color: #F4F4F5;
+            border-bottom: 1px solid #28cac2;
+        }
+        
+        .gg1 img {
+            width: 78px;
+            height: 78px;
+            padding: 10px;
+            vertical-align: center;
+            display: inline-block;
+        }
+        
+        .gg1 form {
+            width: 20px;
+        }
+        
+        .gg1 input {
+            margin-top: 40px;
+        }
+        
+        .sga {
+            width: 456px;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .sga>a {
+            font-size: 15px;
+    color: #333333;
+    top: 36%;
+    position: relative;
+        }
+        
+        .sg1 {
+            width: 144px;
+            height: 100px;
+            line-height: 100px;
+        }
+        
+        .num1 {
+            width: 180px;
+        }
+        
+        #num {
+            width: 80px;
+        }
+        
+        .num2 {
+            width: 144px;
+            line-height: 100px;
+            color: #333333;
+            text-indent: 20px;
+        }
+        
+        .num3 {
+            text-align: center;
+            line-height: 100px;
+            text-indent: 20px;
+        }
+        
+        .num3>a {
+            font-size: 14px;
+            color: #333333;
+        }
+        
+        .js1 {
+            margin-top: 30px;
+            line-height: 60px;
+        }
+        
+        .js2 {
+            height: 60px;
+            border: 1px solid #CFCFCF;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .js3,
+        .js4 {
+            display: flex;
+        }
+        
+        .js3>input {
+            margin-top: 25px;
+        }
+        
+        .ss4 {
+            width: 140px;
+            height: 60px;
+            text-align: center;
+            background-color: #28cac2;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .ss3 {
+            font-size: 18px;
+            color: #FF0000;
+            text-align: center;
+            width: 200px;
+        }
+        
+        .ss2 {
+            width: 120px;
+            font-size: 14px;
+            line-height: 60px;
+            color: #888888;
+        }
+        
+        .ss1 {
+            padding: 0 10px;
+            width: 120px;
+            line-height: 60px;
+            color: #888888;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="padding:0;margin:0">
+    <div class="header">
+		<div class="stname" style="width: auto;height: auto;top: 0;left: 0;cursor: none;">
+			<span id="name1" class="name">水果</span>
+			<span id="name2" class="name"> ๑ </span>
+			<span id="name3" class="name">篮子</span>
+		</div>
+		<img class="yingye" src="../img2/fruico.png"/>
+		<ul class="user">
+            <script src="../js/jquery.min.js"></script>
+            <script>    
+                $(function() {
+                        if(cookie.get('isLogin')=="true"){
+                            var s='<li><a id="userbtn">'+cookie.get('username')+'</a></li>';
+                            $('.user').append(s);
+                            var t='<ul id="userset" style="display:none;"><li class="quitlogin"><a>退出</a></li></ul>';
+                            $('.header').append(t);
+                            $('#userbtn').on('click',function(){
+                                $('#userset').fadeToggle(200);
+                            });
+                            $('.quitlogin').on('click',function(){
+                                cookie.set('isLogin','false',1);
+                                cookie.remove('username');
+                                location.href="index.html";
+                            });
+                        }else{
+                            var s='<li><a id="loginbtn" href="login.html">登录/注册</a></li>';
+                            $('.user').append(s);
+                        }
+                });
+            </script>
+		</ul>
+		<ul class="menulist">
+			<li><a class="menu" href="index.html">首页</a><i></i></li>
+			<li><a class="menu" target="_blank" href="tencent://message/?uin=270540351">联系我们</a><i></i></li>
+			<li><a class="menu" href="#">关于我们</a><i></i></li>
+		</ul>
+		
+	</div>
+
+
+    <div class="container">
+        <div class="ul-1">
+            <ul class="ul-a ">
+
+                <li>1.&nbsp;我的购物车</li>
+                <li>2.&nbsp;填写核对订单信息</li>
+                <li>3.&nbsp;成功提交订单</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="whole" style="padding-left: 10px;">购物车</div>
+    </div>
+
+    <div class="mmm">
+        <div class="container">
+            <div class="mmm1">
+                <form>
+                    <input type="checkbox">全选
+                </form>
+                <div class="sp1">
+                    商品
+                </div>
+                <div class="dj1">
+                    单价(元)
+                </div>
+                <div class="sh">
+                    数量
+                </div>
+                <div class="xj">
+                    小计(元)
+                </div>
+                <div class="cz1">
+                    操作
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zy container">
+        <form>
+            <input type="checkbox">自营
+        </form>
+    </div>
+
+
+
+
+
+    <div class="gg">
+        <div class="container">
+            <div class="g1">
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="js1">
+        <div class="container">
+            <div class="js2">
+
+            </div>
+        </div>
+    </div>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(function() {
+            var shop = cookie.get('shop');
+            if (shop) {
+                shop = JSON.parse(shop);
+                var idList = shop.map(elm => elm.id).join();
+
+                $.ajax({
+                    type: "get",
+                    url: "../lib/shop.php",
+                    data: {
+                        'idList': idList
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        var tempstr = '';
+                        data.forEach(elm => {
+                            let pic = JSON.parse(elm.pic);
+                            var arr = shop.filter((val, i) => {
+                                return val.id == elm.id;
+                            });
+
+
+                            tempstr += `
+                            <div class="gg1">    
+                <form>
+                       
+                    <input type="checkbox" checked>
+
+                </form>
+                <img src="${pic[0].src}">
+                <div class="sga">
+                    <a href="product.html?id=${elm.id}">
+                            ${elm.title}
+                    </a>
+                </div>
+                <div class="sg1">
+                        ${elm.price}
+                </div>
+                <div class="num1">
+                        数量：<input class="nn" type="number" value="${arr[0].num}" min="1" max="${elm.num}">
+                                </div>
+                               
+                               
+                <div class="num2">
+                        ${(arr[0].num*elm.price).toFixed(2)}
+                </div>
+                <div class="num3">
+                    <a href="#">删除</a>
+                </div>
+             
+                </div>
+                           `;
+
+                        });
+
+                        var tempp = "";
+                        tempp += `
+<div class="js3">
+                    <input type="checkbox">
+                    <div>全选</div>
+                    <div class="ss1">
+                        删除所选中的商品
+                    </div>
+                </div>
+                <div class="js4">
+                    <div class="ss2">
+                        已选择<span class="dd" style="padding: 0 5px;color:red"></span>件商品
+                    </div>
+                    <div class="ss3">
+                        总价: ￥<span class="ee"></span>
+                    </div>
+                    <div class="ss4">
+                结算
+                    </div>
+                </div>
+                <\script>
+            
+                
+              
+               
+            
+                        $('.ss4').on('click', function() {
+                            if(!cookie.get('isLogin')){
+                                alert('请登录');
+     }
+     else{
+         alert('支付成功');
+         cookie.remove('shop',"",-1);
+         location.reload();
+       
+     };
+});
+
+
+var sum=0;
+var sum2=0;
+
+var shop1=cookie.get('shop');
+
+shop1 = JSON.parse(shop1);
+
+shop1.forEach(elm=>{
+    
+   sum+=parseInt(elm.num);
+   sum2+=parseInt(elm.num)*parseInt(elm.price);
+});
+cookie.set(sum2,true,1);
+
+$('.dd').text(sum);
+$('.ee').text(sum2);
+
+
+                <\/script>
+               
+
+
+`;
+
+
+
+                        $('.js2').append(tempp);
+
+                        $('.g1').append(tempstr);
+                    }
+                });
+            }
+        });
+    </script>
+    <div class="footer2">CopyRight© 2019-2020 BeiYuan II</div>
+</body>
+
+</html>

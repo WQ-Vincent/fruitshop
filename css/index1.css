@@ -1,0 +1,124 @@
+body{
+    font:12px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+.topBar {
+  background: #F5F5F5;
+  height: 30px;
+  line-height: 30px;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+em {
+  list-style: none;
+  font-style: normal;
+}
+
+.main1 {
+  height: 100px;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.search-inner {
+  position: absolute;
+  top: 40px;
+  left: 600px;
+  z-index: 20;
+}
+
+.search-inner .input {
+  border: 1px solid green;
+  width: 338px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  padding: 0;
+  outline: 0;
+}
+
+.btxt {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 20;
+  width: 46px;
+  height: 32px;
+  background: url(../img/05.png) no-repeat 12px 5px;
+}
+
+.cart-inner {
+  position: absolute;
+  right: 200px;
+  top: 30px;
+}
+
+.cart-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background: url(../img/06.jpg) no-repeat;
+}
+
+.cart-text {
+  position: relative;
+  top: -16px;
+}
+
+.nav {
+  background-color: #4bae00;
+  height: 40px;
+}
+
+.ul-1 {
+  display: flex;
+  line-height: 40px;
+  justify-content: space-around;
+}
+
+.ul-1 > li {
+  list-style: none;
+  height: 40px;
+  padding: 0 10px;
+  transition: background-color 1s;
+}
+
+.ul-1 > li > a {
+  color: white;
+}
+
+.ul-1 > li:hover {
+  background-color: red;
+}
+
+.footer{
+    color: #28cac2;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    bottom: 29px;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+}
+
+.footer2{
+    color: #28cac2;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    bottom: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    font-size: 15px;
+}
+/* .search-inner {
+      float: left;
+  } */

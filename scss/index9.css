@@ -1,0 +1,196 @@
+.ul-a {
+  padding: 0;
+  width: 503px;
+  height: 20px;
+  display: flex;
+  background: url(../img/aa.png) no-repeat;
+}
+
+.ul-1 {
+  position: relative;
+}
+
+.ul-a {
+  position: absolute;
+  right: 0;
+  top: 25px;
+}
+
+.ul-a li {
+  margin-top: 20px;
+  width: 167px;
+  text-align: center;
+  list-style: none;
+  font-size: 14px;
+}
+
+.whole {
+  margin-top: 120px;
+  height: 40px;
+  font-size: 18px;
+  color: #666;
+}
+
+.mmm1 {
+  display: flex;
+  height: 46px;
+  line-height: 46px;
+  text-align: left;
+  background-color: #F4F4F5;
+  font-size: 12px;
+  color: #333333;
+}
+
+form {
+  width: 143px;
+}
+
+.sp1 {
+  width: 38%;
+}
+
+.dj1 {
+  width: 12%;
+}
+
+.sh {
+  width: 15%;
+}
+
+.xj {
+  width: 12%;
+}
+
+.cz1 {
+  width: 11%;
+}
+
+.zy {
+  height: 42px;
+  line-height: 38px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.g1 {
+  border-top: 2px solid #84A9CC;
+}
+
+.gg1 {
+  display: flex;
+  height: 100px;
+  background-color: #F4F4F5;
+  border-bottom: 1px dotted #CFCFCF;
+}
+
+.gg1 img {
+  width: 78px;
+  height: 78px;
+  padding: 10px;
+  vertical-align: center;
+  display: inline-block;
+}
+
+.gg1 form {
+  width: 20px;
+}
+
+.gg1 input {
+  margin-top: 40px;
+}
+
+.sga {
+  width: 456px;
+  text-align: center;
+  padding: 10px;
+}
+
+.sga > a {
+  font-size: 14px;
+  color: #333333;
+}
+
+.sg1 {
+  width: 144px;
+  height: 100px;
+  line-height: 100px;
+}
+
+.num1 {
+  width: 180px;
+}
+
+#num {
+  width: 80px;
+}
+
+.num2 {
+  width: 144px;
+  line-height: 100px;
+  color: #333333;
+  text-indent: 20px;
+}
+
+.num3 {
+  text-align: center;
+  line-height: 100px;
+  text-indent: 20px;
+}
+
+.num3 > a {
+  font-size: 14px;
+  color: #333333;
+}
+
+.js1 {
+  margin-top: 30px;
+  line-height: 60px;
+}
+
+.js2 {
+  height: 60px;
+  border: 1px solid #CFCFCF;
+  display: flex;
+  justify-content: space-between;
+}
+
+.js3,
+.js4 {
+  display: flex;
+}
+
+.js3 > input {
+  margin-top: 25px;
+}
+
+.ss4 {
+  width: 140px;
+  height: 60px;
+  text-align: center;
+  background-color: #FFA312;
+  font-size: 14PX;
+  color: white;
+}
+
+.ss3 {
+  font-size: 20px;
+  color: #FF0000;
+  text-align: center;
+  width: 200px;
+}
+
+.ss2 {
+  width: 120px;
+  font-size: 14px;
+  line-height: 60px;
+  color: #888888;
+}
+
+.ss1 {
+  padding: 0 10px;
+  width: 120px;
+  line-height: 60px;
+  color: #888888;
+  font-size: 14px;
+  text-align: center;
+}
